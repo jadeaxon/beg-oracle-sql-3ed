@@ -6,6 +6,8 @@
 -- Apress, 2005
 -- ======================================
 
+-- After you run this, connect as BOOK@DEV in Toad.
+
 set trimspool on
 spool creschema.txt
 
@@ -20,7 +22,7 @@ prompt Create user BOOK ...
 create user book
 default   tablespace users
 temporary tablespace temp
-identified by book;
+identified by bookerbookington3rd;
 
 prompt Grant some system privileges ...
 ------ ================================
@@ -34,11 +36,13 @@ grant create session, alter session,
       create trigger,
       create type
 to    book;
-grant execute on dbms_lock to book;
+
+-- WARNING: BANINST1 has insufficient privileges.
+-- grant execute on dbms_lock to book;
 
 prompt Connect to the new schema ...
 ------ =============================
-connect book/book
+connect book/bookerbookington3rd
 set feedback off
 
 prompt Create the case tables ...
